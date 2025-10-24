@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⏰ Hourly Alarm Clock
 
-## Getting Started
+A web-based digital clock application that rings an alarm every hour on the hour.
 
-First, run the development server:
+## ✨ Features
+
+- **Real-time Digital Clock**: Displays current time in real-time
+- **Hourly Alarm**: Automatically plays alarm sound every hour (at 00 minutes)
+- **Alarm Toggle**: Button to enable/disable alarm functionality
+- **Alarm Test**: Test button to preview alarm sound
+- **Next Alarm Countdown**: Shows remaining time until next hourly alarm
+- **Responsive Design**: Adaptive UI for various screen sizes
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Audio**: Web Audio API
+
+## 📦 Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone [repository-url]
+cd hourly-alarm-clock
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Add audio file
+
+Place your `tap-notification.mp3` file in the `public` folder.
+
+### 4. Run development server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+hourly-alarm-clock/
+├── public/
+│   └── tap-notification.mp3  # Alarm sound file
+├── src/
+│   └── app/
+│       ├── page.tsx          # Main page component
+│       ├── layout.tsx        # Layout component
+│       └── globals.css       # Global styles
+├── package.json
+└── README.md
+```
 
-## Learn More
+## 🎯 Usage
 
-To learn more about Next.js, take a look at the following resources:
+1. **Enable Alarm**: Click "🔕 Alarm Off" button to change it to "🔔 Alarm On"
+2. **Test Alarm**: Use "🎵 Test Alarm" button to check alarm sound
+3. **Automatic Alarm**: When enabled, alarm will automatically ring every hour at 00 minutes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Change Alarm Sound
 
-## Deploy on Vercel
+Replace the `public/tap-notification.mp3` file with your desired audio file.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Change Alarm Interval
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Modify the following part in `page.tsx` to change alarm frequency:
+
+```typescript
+// Current: Every hour (minutes === 0)
+newTime.getMinutes() === 0;
+
+// Example: Every 30 minutes
+newTime.getMinutes() === 0 || newTime.getMinutes() === 30;
+```
+
+### Style Customization
+
+Modify Tailwind CSS classes to change colors, fonts, and layout.
+
+## 🌐 Browser Compatibility
+
+- Chrome 66+
+- Firefox 60+
+- Safari 11.1+
+- Edge 79+
+
+> **Note**: Due to browser autoplay policies, audio may not play without user interaction. Please click the alarm test button first to allow audio playback.
+
+## 📝 License
+
+MIT License
+
+## 🤝 Contributing
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📞 Contact
+
+If you have any questions about the project, please create an issue.
