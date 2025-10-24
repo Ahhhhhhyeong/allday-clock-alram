@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     // 오디오 객체 생성(CSL)
-    audioRef.current = new Audio('/alarm.mp3');
+    audioRef.current = new Audio('./alarm.mp3');
     audioRef.current.volume = 1.0;
 
     const timer = setInterval(() => {
